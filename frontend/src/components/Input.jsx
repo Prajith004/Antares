@@ -3,6 +3,7 @@ import { useState } from "react";
 export function Input(){
 
     const [input, setInput] = useState("")
+    const [output, setOutput] = useState("")
     
     const containerStyle = {
         display: "block",
@@ -31,8 +32,14 @@ export function Input(){
             })
             .then(async function(res){
                 const json = await res.json();
-                alert("Input and Data recived");
+                setOutput(json.factcheck)
             })
         }}>Search</button>
+        <br></br>
+        <div className="card-container">
+            <div className="card-content">
+                {output}
+            </div>
+        </div>
     </div>
 }
