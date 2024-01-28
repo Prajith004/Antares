@@ -2,8 +2,8 @@ from googlesearch import search
 from bs4 import BeautifulSoup
 import requests
 import sys
+import os
 
-text_file_path = 'links.txt'
 temp_file_path = 'temp_output.txt'
 
 def google_search(query):
@@ -12,23 +12,13 @@ def google_search(query):
 
         lines = []
         for i, result in enumerate(results, start=1):
-            new_data = result + "\n"
+            new_data = result
             lines.append(new_data)
             if i == 10:
                 break
-        
-        with open(text_file_path, 'w') as file:
-            file.writelines(lines)
-        file.close()
-    
         try:
-            with open(text_file_path, 'r') as file:
-                lines = file.read()
-            file.close()
-        
-            arr = lines.split("\n")
-            for i in range(2):
-                url = arr[i]
+            for i in range(3):
+                url = lines[i]
                 response = requests.get(url)
                 html_content = response.text
 
@@ -38,7 +28,7 @@ def google_search(query):
                     if(len(paragraph.text) > 50):
                         with open(temp_file_path, 'a') as temp_file:
                             temp_file.write(paragraph.text + '\n')
-
+            
         except Exception as e:
             print(f"An error occured: {e}")
 
