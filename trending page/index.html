@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Headlines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .headline-container {
+            margin: 20px;
+        }
+        .headline-list {
+            list-style: none;
+            padding: 0;
+        }
+        .headline-item {
+            margin-bottom: 20px; /* Increased margin for more space */
+        }
+    </style>
+</head>
+<body>
+    <div class="headline-container">
+        <h2>Headlines from headlines1.txt</h2>
+        <ul class="headline-list" id="headlines1-list"></ul>
+    </div>
+
+    <div class="headline-container">
+        <h2>Headlines from headlines.txt</h2>
+        <ul class="headline-list" id="headlines-list"></ul>
+    </div>
+
+    <script>
+        // Function to create a list item with proper spacing
+        function createListItem(text) {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = text.trim(); // Use innerHTML to allow line breaks
+            listItem.classList.add('headline-item');
+            return listItem;
+        }
+
+        // Fetch headlines1.txt
+        fetch('headlines1.txt')
+            .then(response => response.text())
+            .then(data => {
+                const headlines1List = document.getElementById('headlines1-list');
+                data.split('\n\n').slice(0, 4).forEach((headline, index) => {
+                    const listItem = createListItem(`${index + 1}. ${headline}<br><br>`);
+                    headlines1List.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching headlines1.txt:', error));
+
+        // Fetch headlines.txt
+        fetch('headlines.txt')
+            .then(response => response.text())
+            .then(data => {
+                const headlinesList = document.getElementById('headlines-list');
+                data.split('\n\n').slice(0, 3).forEach((headline, index) => {
+                    const listItem = createListItem(`${index + 1}. ${headline}<br><br>`);
+                    headlinesList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching headlines.txt:', error));
+    </script>
+</body>
+</html>
+
+
