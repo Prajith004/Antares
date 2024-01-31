@@ -4,6 +4,7 @@
     --background-color-dark: #1e1e1e;
     --text-color-dark: #ffffff;
 }
+
 body {
     background-color: var(--background-color-light);
     color: var(--text-color-light);
@@ -13,17 +14,12 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    min-height: 100vh;
 }
 
 body.dark-mode {
     background-color: var(--background-color-dark);
     color: var(--text-color-dark);
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
 }
 
 header {
@@ -37,14 +33,14 @@ body.dark-mode header {
     background-color: #414141;
     padding: 15px 0;
     text-align: center;
-    color: #bff04d
+    color: #bff04d;
 }
 
 nav {
     background-color: #000000;
     overflow: hidden;
     color: white;
-    border-bottom: 1px solid #ffffff
+    border-bottom: 1px solid #ffffff;
 }
 
 nav a {
@@ -89,11 +85,9 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    position: relative;
-    bottom: -2em;
     width: 100%;
     border-top: 1px solid #ffffff;
-    
+    margin-top: auto;
 }
 
 /* Social icons styles */
@@ -210,7 +204,7 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
-
+/* there are some errors in the main class so i have not used it for now */
 .main {
     width: 50%;
     min-height: 200%;
@@ -220,7 +214,6 @@ input:checked+.slider:before {
     align-items: center;
     margin-left: 25%;
     flex-grow: 1;
-    height: 35em;
 }
 
 .main p {
