@@ -159,9 +159,6 @@ body.dark-mode .popup-info {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* transition: .8s ease-in-out; */
-    /* transition-delay: .25s; */
-    z-index: 10;
 }
 
 body.dark-mode .quiz-section {
