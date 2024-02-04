@@ -15,6 +15,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow: hidden;
+    max-height: 100vh;
 }
 
 body.dark-mode {
@@ -27,6 +29,10 @@ header {
     padding: 15px 0;
     text-align: center;
     color: rgb(0, 119, 255);
+    max-height: 10%;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
 }
 
 body.dark-mode header {
@@ -41,6 +47,10 @@ nav {
     overflow: hidden;
     color: white;
     border-bottom: 1px solid #ffffff;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 10%;
 }
 
 nav a {
@@ -87,7 +97,10 @@ footer {
     text-align: center;
     width: 100%;
     border-top: 1px solid #ffffff;
-    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+    z-index: 100;
 }
 
 /* Social icons styles */
